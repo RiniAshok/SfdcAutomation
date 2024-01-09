@@ -23,7 +23,7 @@ public class CreateAnAccountPage extends BasePage{
 
 	public CreateAnAccountPage(WebDriver driver)
 	{
-		PageFactory.initElements(driver, this);
+		super(driver);
 	}
 	
 	@FindBy(xpath="//a[@title='Accounts Tab']")

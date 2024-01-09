@@ -16,7 +16,7 @@ public class ContactsPage extends BasePage{
 	
 	public ContactsPage(WebDriver driver)
 	{
-		PageFactory.initElements(driver,this);
+		super(driver);
 	}
 	
 	@FindBy(linkText="Contacts")

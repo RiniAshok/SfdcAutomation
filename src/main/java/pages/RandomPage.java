@@ -20,7 +20,7 @@ public class RandomPage extends BasePage{
 	
 	public RandomPage(WebDriver driver)
 	{
-		PageFactory.initElements(driver,this);
+		super(driver);
 	}
 	
 	@FindBy(linkText="Home")

@@ -17,7 +17,7 @@ public class LeadPage extends BasePage{
 	
 	public LeadPage(WebDriver driver)
 	{
-		PageFactory.initElements(driver,this);
+		super(driver);
 	}
 	
 	@FindBy(linkText="Leads")

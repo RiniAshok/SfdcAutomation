@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Test;
 
 import listners.SFDCListeners;
@@ -20,17 +21,17 @@ public class CreateOpportunityTestPage extends BaseTest {
 
 	
 	@BeforeMethod
-	public void preCondition() throws IOException
+	public void preCondition(@Optional("chrome") String bName, @Optional("false") boolean isHeadless) throws IOException
 	{
-		driver = BaseTest.getBrowserType("chrome");
-		LoginPage lp = new LoginPage(driver);
-		lp.loginPage(driver);
+		BaseTest.setDriver(bName, isHeadless);
+		logger.info("CreateOpportunityTestPage : precondition : ");
 		System.out.println("Before Test");
 	}
 	
 	@AfterMethod
 	public void closeDriver()
 	{
+		WebDriver driver = BaseTest.getDriver();
 		driver.close();
 	}
 	
@@ -38,6 +39,9 @@ public class CreateOpportunityTestPage extends BaseTest {
 	
 	public void selectOpportunityDropdown_TC15() throws IOException
 	{
+		WebDriver driver = BaseTest.getDriver();
+		LoginPage lp = new LoginPage(driver);
+		lp.loginPage(driver);
 		CreateOpportunityPage cop = new CreateOpportunityPage(driver);
 		cop.selectOpportunity();
 		test.info("Opportunity tab selected");
@@ -52,6 +56,9 @@ public class CreateOpportunityTestPage extends BaseTest {
 	
 	public void verifyCreateNewOpportunity_TC16() throws IOException
 	{
+		WebDriver driver = BaseTest.getDriver();
+		LoginPage lp = new LoginPage(driver);
+		lp.loginPage(driver);
 		CreateOpportunityPage cop = new CreateOpportunityPage(driver);
 		cop.selectOpportunity();
 		test.info("Opportunity tab selected");
@@ -63,8 +70,11 @@ public class CreateOpportunityTestPage extends BaseTest {
 	
 	@Test
 	
-	public void verifyOpportunityPipelineReport_TC17()
+	public void verifyOpportunityPipelineReport_TC17() throws IOException
 	{
+		WebDriver driver = BaseTest.getDriver();
+		LoginPage lp = new LoginPage(driver);
+		lp.loginPage(driver);
 		CreateOpportunityPage cop = new CreateOpportunityPage(driver);
 		cop.selectOpportunity();
 		test.info("Opportunity tab selected");
@@ -76,8 +86,11 @@ public class CreateOpportunityTestPage extends BaseTest {
 
 	@Test
 	
-	public void verifyStuckOpportunityReport_TC18()
+	public void verifyStuckOpportunityReport_TC18() throws IOException
 	{
+		WebDriver driver = BaseTest.getDriver();
+		LoginPage lp = new LoginPage(driver);
+		lp.loginPage(driver);
 		CreateOpportunityPage cop = new CreateOpportunityPage(driver);
 		cop.selectOpportunity();
 		test.info("Opportunity tab selected");
@@ -89,8 +102,11 @@ public class CreateOpportunityTestPage extends BaseTest {
 	
     @Test
 	
-	public void verifyQuarterlySummaryReport_TC19()
+	public void verifyQuarterlySummaryReport_TC19() throws IOException
 	{
+    	WebDriver driver = BaseTest.getDriver();
+		LoginPage lp = new LoginPage(driver);
+		lp.loginPage(driver);
 		CreateOpportunityPage cop = new CreateOpportunityPage(driver);
 		cop.selectOpportunity();
 		test.info("Opportunity tab selected");

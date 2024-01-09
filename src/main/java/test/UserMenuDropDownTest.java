@@ -29,7 +29,7 @@ public class UserMenuDropDownTest extends BaseTest {
 	public void preCondition(@Optional("chrome") String bName, @Optional("false") boolean isHeadless) throws IOException
 	{
 		BaseTest.setDriver(bName, isHeadless);
-		logger.info("BaseTest : precondition : ");
+		logger.info("UserMenuDropdownTest : precondition : ");
 		
 		System.out.println("Before Test");
 	}

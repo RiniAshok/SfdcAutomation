@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Test;
 
 import listners.SFDCListeners;
@@ -20,17 +21,17 @@ public class CreateAccountTestPage extends BaseTest{
 
 	
 	@BeforeMethod
-	public void preCondition() throws IOException
+	public void preCondition(@Optional("chrome") String bName, @Optional("false") boolean isHeadless) throws IOException
 	{
-		driver = BaseTest.getBrowserType("chrome");
-		LoginPage lp = new LoginPage(driver);
-		lp.loginPage(driver);
+		BaseTest.setDriver(bName, isHeadless);
+		logger.info("CreateAccountTest : precondition : ");
 		System.out.println("Before Test");
 	}
 	
 	@AfterMethod
 	public void closeDriver()
 	{
+		WebDriver driver = BaseTest.getDriver();
 		driver.close();
 	}
 	
@@ -38,6 +39,9 @@ public class CreateAccountTestPage extends BaseTest{
 	
 	public void createAccount_TC10() throws IOException
 	{
+		WebDriver driver = BaseTest.getDriver();
+		LoginPage lp = new LoginPage(driver);
+		lp.loginPage(driver);
 		CreateAnAccountPage cp = new CreateAnAccountPage(driver);
 		cp.clickAccountsLink(driver);
 		Assert.assertTrue(cp.isMyAccountsPageDisplayed(driver), "Failed to download MyAccounts page");
@@ -50,6 +54,9 @@ public class CreateAccountTestPage extends BaseTest{
 	
 	public void createNewView_TC11() throws IOException
 	{
+		WebDriver driver = BaseTest.getDriver();
+		LoginPage lp = new LoginPage(driver);
+		lp.loginPage(driver);
 		CreateAnAccountPage cp = new CreateAnAccountPage(driver);
 		cp.clickAccountsLink(driver);
 		Assert.assertTrue(cp.isMyAccountsPageDisplayed(driver), "Failed to download MyAccounts page");
@@ -62,6 +69,9 @@ public class CreateAccountTestPage extends BaseTest{
 	
 	public void editView_TC12() throws IOException, InterruptedException
 	{
+		WebDriver driver = BaseTest.getDriver();
+		LoginPage lp = new LoginPage(driver);
+		lp.loginPage(driver);
 		CreateAnAccountPage cp = new CreateAnAccountPage(driver);
 		cp.clickAccountsLink(driver);
 		Assert.assertTrue(cp.isMyAccountsPageDisplayed(driver), "Failed to download MyAccounts page");
@@ -74,6 +84,9 @@ public class CreateAccountTestPage extends BaseTest{
 	
 	public void mergeAccount_TC13() throws IOException
 	{
+		WebDriver driver = BaseTest.getDriver();
+		LoginPage lp = new LoginPage(driver);
+		lp.loginPage(driver);
 		CreateAnAccountPage cp = new CreateAnAccountPage(driver);
 		cp.clickAccountsLink(driver);
 		Assert.assertTrue(cp.isMyAccountsPageDisplayed(driver), "Failed to download MyAccounts page");
@@ -86,6 +99,9 @@ public class CreateAccountTestPage extends BaseTest{
 	
 	public void createAccountReport_TC14() throws IOException, InterruptedException
 	{
+		WebDriver driver = BaseTest.getDriver();
+		LoginPage lp = new LoginPage(driver);
+		lp.loginPage(driver);
 		CreateAnAccountPage cp = new CreateAnAccountPage(driver);
 		cp.clickAccountsLink(driver);
 		Assert.assertTrue(cp.isMyAccountsPageDisplayed(driver), "Failed to download MyAccounts page");

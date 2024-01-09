@@ -18,7 +18,7 @@ public class CreateOpportunityPage extends BasePage{
 	
 	public CreateOpportunityPage(WebDriver driver)
 	{
-		PageFactory.initElements(driver,this);
+		super(driver);
 	}
 	
 	@FindBy(xpath="//li[@id='Opportunity_Tab']/a")

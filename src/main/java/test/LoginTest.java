@@ -21,7 +21,7 @@ public class LoginTest extends BaseTest {
 	//@Test(enabled=true, groups = "smoke")
 	public void errorMessage_TC01() throws IOException
 	{
-		WebDriver driver = BaseTest.getBrowserType("chrome");
+		WebDriver driver = BaseTest.getDriver();
 		LoginPage lp = new LoginPage(driver);
 		driver.get(FileUtils.readLoginTestData("prod.app.url"));
 		test.info("Launching the url");
@@ -41,7 +41,7 @@ public class LoginTest extends BaseTest {
 	//@Test(enabled=true, groups = "smoke")
 	public void login_TC02() throws IOException
 	{
-		WebDriver driver = BaseTest.getBrowserType("chrome");
+		WebDriver driver = BaseTest.getDriver();
 		LoginPage lp = new LoginPage(driver);
 		driver.get(FileUtils.readLoginTestData("prod.app.url"));
 		test.info("Launching the url");
@@ -61,7 +61,7 @@ public class LoginTest extends BaseTest {
 	
 	public void checkRememberMe_TC03() throws IOException, InterruptedException
 	{
-		WebDriver driver = BaseTest.getBrowserType("chrome");
+		WebDriver driver = BaseTest.getDriver();
 		LoginPage lp = new LoginPage(driver);
 		driver.get(FileUtils.readLoginTestData("prod.app.url"));
 		test.info("Launching the url");
@@ -103,7 +103,7 @@ public class LoginTest extends BaseTest {
 	
 	public void clickForgotPassword_TC04A() throws IOException
 	{
-		WebDriver driver = BaseTest.getBrowserType("chrome");
+		WebDriver driver = BaseTest.getDriver();
 		LoginPage lp = new LoginPage(driver);
 		driver.get(FileUtils.readLoginTestData("prod.app.url"));
 		test.info("Launching the url");
@@ -123,7 +123,7 @@ public class LoginTest extends BaseTest {
 	//@Test
     public void invalidLogin_TC04B() throws IOException, InterruptedException
     {
-		WebDriver driver = BaseTest.getBrowserType("chrome");
+		WebDriver driver = BaseTest.getDriver();
 		LoginPage lp = new LoginPage(driver);
 		driver.get(FileUtils.readLoginTestData("prod.app.url"));
 		test.info("Launching the url");

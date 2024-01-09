@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Test;
 
 import listners.SFDCListeners;
@@ -21,17 +22,17 @@ public class LeadTest extends BaseTest{
 
 	
 	@BeforeMethod
-	public void preCondition() throws IOException
+	public void preCondition(@Optional("chrome") String bName, @Optional("false") boolean isHeadless) throws IOException
 	{
-		driver = BaseTest.getBrowserType("chrome");
-		LoginPage lp = new LoginPage(driver);
-		lp.loginPage(driver);
+		BaseTest.setDriver(bName, isHeadless);
+		logger.info("LeadTest : precondition : ");
 		System.out.println("Before Test");
 	}
 	
 	//@AfterMethod
 	public void closeDriver()
 	{
+		WebDriver driver = BaseTest.getDriver();
 		LoginPage lp = new LoginPage(driver);
 		lp.logoutPage(driver);
 		System.out.println("Logged out");
@@ -42,6 +43,9 @@ public class LeadTest extends BaseTest{
 	
 	public void testLeadTab_TC20() throws IOException
 	{
+		WebDriver driver = BaseTest.getDriver();
+		LoginPage lp = new LoginPage(driver);
+		lp.loginPage(driver);
 		LeadPage lead = new LeadPage(driver);
 		lead.clickLeadTab(driver);
 		test.info("Lead tab selected");
@@ -53,6 +57,9 @@ public class LeadTest extends BaseTest{
 	//@Test
 	public void testLeadTabDropdown_TC21() throws IOException
 	{
+		WebDriver driver = BaseTest.getDriver();
+		LoginPage lp = new LoginPage(driver);
+		lp.loginPage(driver);
 		LeadPage lead = new LeadPage(driver);
 		lead.clickLeadTab(driver);
 		test.info("Lead tab selected");
@@ -66,6 +73,9 @@ public class LeadTest extends BaseTest{
 	
 	public void checkDefaultView_TC22() throws IOException
 	{
+		WebDriver driver = BaseTest.getDriver();
+		LoginPage lp = new LoginPage(driver);
+		lp.loginPage(driver);
 		LeadPage lead = new LeadPage(driver);
 		lead.clickLeadTab(driver);
 		test.info("Lead tab selected");
@@ -80,6 +90,9 @@ public class LeadTest extends BaseTest{
 	
 	public void verifyTodaysLead_TC23() throws IOException
 	{
+		WebDriver driver = BaseTest.getDriver();
+		LoginPage lp = new LoginPage(driver);
+		lp.loginPage(driver);
 		LeadPage lead = new LeadPage(driver);
 		lead.clickLeadTab(driver);
 		test.info("Lead tab selected");
@@ -93,6 +106,9 @@ public class LeadTest extends BaseTest{
 	
 	public void createNewLead_TC24() throws IOException
 	{
+		WebDriver driver = BaseTest.getDriver();
+		LoginPage lp = new LoginPage(driver);
+		lp.loginPage(driver);
 		LeadPage lead = new LeadPage(driver);
 		lead.clickLeadTab(driver);
 		test.info("Lead tab selected");
